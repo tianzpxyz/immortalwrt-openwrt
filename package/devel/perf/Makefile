@@ -10,7 +10,7 @@ include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=perf
 PKG_VERSION:=$(LINUX_VERSION)
-PKG_RELEASE:=5
+PKG_RELEASE:=6
 
 PKG_BUILD_FLAGS:=no-mips16 no-lto
 PKG_BUILD_PARALLEL:=1
@@ -51,6 +51,7 @@ MAKE_FLAGS = \
 	NO_BACKTRACE=1 \
 	NO_LIBNUMA=1 \
 	NO_GTK2=1 \
+	NO_SLANG=1 \
 	NO_LIBAUDIT=1 \
 	NO_LIBCRYPTO=1 \
 	NO_LIBUNWIND=1 \
@@ -70,6 +71,10 @@ MAKE_FLAGS = \
 	WERROR=0 \
 	O=$(PKG_BUILD_DIR) \
 	prefix=/usr
+
+ifeq ($(LINUX_KARCH),powerpc)
+	MAKE_FLAGS += NO_AUXTRACE=1
+endif
 
 define Build/Compile
 	+$(MAKE) $(PKG_JOBS) $(MAKE_FLAGS) \

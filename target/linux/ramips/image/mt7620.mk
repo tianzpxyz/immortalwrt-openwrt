@@ -145,7 +145,7 @@ define Device/bdcom_wap2100-sk
   DEVICE_VENDOR := BDCOM
   DEVICE_MODEL := WAP2100-SK (ZTE ZXECS EBG3130)
   DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-mt76x2 kmod-mt76x0e \
-	kmod-sdhci-mt7620 kmod-usb-ledtrig-usbport
+	kmod-mmc-mtk kmod-usb-ledtrig-usbport
 endef
 TARGET_DEVICES += bdcom_wap2100-sk
 
@@ -164,7 +164,8 @@ define Device/bolt_bl201
   IMAGE_SIZE := 15872k
   DEVICE_VENDOR := Bolt
   DEVICE_MODEL := BL201
-  DEVICE_PACKAGES := kmod-mt76x2
+  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci
+  UIMAGE_MAGIC := 0x26112015
 endef
 TARGET_DEVICES += bolt_bl201
 
@@ -381,7 +382,7 @@ define Device/domywifi_dm202
   IMAGE_SIZE := 16064k
   DEVICE_VENDOR := DomyWifi
   DEVICE_MODEL := DM202
-  DEVICE_PACKAGES := kmod-mt76x0e kmod-sdhci-mt7620 kmod-usb2 kmod-usb-ohci
+  DEVICE_PACKAGES := kmod-mt76x0e kmod-mmc-mtk kmod-usb2 kmod-usb-ohci
 endef
 TARGET_DEVICES += domywifi_dm202
 
@@ -390,7 +391,7 @@ define Device/domywifi_dm203
   IMAGE_SIZE := 16064k
   DEVICE_VENDOR := DomyWifi
   DEVICE_MODEL := DM203
-  DEVICE_PACKAGES := kmod-mt76x0e kmod-sdhci-mt7620 kmod-usb2 kmod-usb-ohci
+  DEVICE_PACKAGES := kmod-mt76x0e kmod-mmc-mtk kmod-usb2 kmod-usb-ohci
 endef
 TARGET_DEVICES += domywifi_dm203
 
@@ -399,7 +400,7 @@ define Device/domywifi_dw22d
   IMAGE_SIZE := 16064k
   DEVICE_VENDOR := DomyWifi
   DEVICE_MODEL := DW22D
-  DEVICE_PACKAGES := kmod-mt76x0e kmod-sdhci-mt7620 kmod-usb2 kmod-usb-ohci
+  DEVICE_PACKAGES := kmod-mt76x0e kmod-mmc-mtk kmod-usb2 kmod-usb-ohci
 endef
 TARGET_DEVICES += domywifi_dw22d
 
@@ -566,7 +567,7 @@ define Device/head-weblink_hdrm200
   IMAGE_SIZE := 16064k
   DEVICE_VENDOR := Head Weblink
   DEVICE_MODEL := HDRM2000
-  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci kmod-sdhci-mt7620 \
+  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci kmod-mmc-mtk \
 	uqmi kmod-usb-serial-option
 endef
 TARGET_DEVICES += head-weblink_hdrm200
@@ -576,7 +577,7 @@ define Device/hiwifi_hc5661
   IMAGE_SIZE := 15808k
   DEVICE_VENDOR := HiWiFi
   DEVICE_MODEL := HC5661
-  DEVICE_PACKAGES := kmod-sdhci-mt7620
+  DEVICE_PACKAGES := kmod-mmc-mtk
   SUPPORTED_DEVICES += hc5661
 endef
 TARGET_DEVICES += hiwifi_hc5661
@@ -586,7 +587,7 @@ define Device/hiwifi_hc5761
   IMAGE_SIZE := 15808k
   DEVICE_VENDOR := HiWiFi
   DEVICE_MODEL := HC5761
-  DEVICE_PACKAGES := kmod-mt76x0e kmod-usb2 kmod-usb-ohci kmod-sdhci-mt7620 \
+  DEVICE_PACKAGES := kmod-mt76x0e kmod-usb2 kmod-usb-ohci kmod-mmc-mtk \
 	kmod-usb-ledtrig-usbport
   SUPPORTED_DEVICES += hc5761
 endef
@@ -597,7 +598,7 @@ define Device/hiwifi_hc5861
   IMAGE_SIZE := 15808k
   DEVICE_VENDOR := HiWiFi
   DEVICE_MODEL := HC5861
-  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci kmod-sdhci-mt7620 \
+  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci kmod-mmc-mtk \
 	kmod-phy-realtek kmod-usb-ledtrig-usbport
   SUPPORTED_DEVICES += hc5861
 endef
@@ -608,7 +609,7 @@ define Device/hnet_c108
   IMAGE_SIZE := 16064k
   DEVICE_VENDOR := HNET
   DEVICE_MODEL := C108
-  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-sdhci-mt7620
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-mmc-mtk
   SUPPORTED_DEVICES += c108
 endef
 TARGET_DEVICES += hnet_c108
@@ -1034,7 +1035,7 @@ define Device/planex_cs-qr10
   DEVICE_VENDOR := Planex
   DEVICE_MODEL := CS-QR10
   DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-sound-core \
-	kmod-sound-mt7620 kmod-i2c-ralink kmod-sdhci-mt7620
+	kmod-sound-mt7620 kmod-i2c-ralink kmod-mmc-mtk
   SUPPORTED_DEVICES += cs-qr10
 endef
 TARGET_DEVICES += planex_cs-qr10
@@ -1150,7 +1151,7 @@ define Device/sanlinking_d240
   IMAGE_SIZE := 16064k
   DEVICE_VENDOR := Sanlinking Technologies
   DEVICE_MODEL := D240
-  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci kmod-sdhci-mt7620
+  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci kmod-mmc-mtk
   SUPPORTED_DEVICES += d240
 endef
 TARGET_DEVICES += sanlinking_d240
@@ -1231,7 +1232,7 @@ define Device/tplink_archer-c2-v1
   DEVICE_MODEL := Archer C2
   DEVICE_VARIANT := v1
   DEVICE_PACKAGES := kmod-mt76x0e kmod-usb2 kmod-usb-ohci \
-	kmod-usb-ledtrig-usbport kmod-switch-rtl8366-smi kmod-switch-rtl8367b
+	kmod-usb-ledtrig-usbport kmod-switch-rtl8367b
 endef
 TARGET_DEVICES += tplink_archer-c2-v1
 
@@ -1351,6 +1352,25 @@ define Device/wavlink_wl-wn530hg4
 endef
 TARGET_DEVICES += wavlink_wl-wn530hg4
 
+define Device/wavlink_wl-wn531g3
+  SOC := mt7620a
+  IMAGE_SIZE := 7808k
+  DEVICE_VENDOR := Wavlink
+  DEVICE_MODEL := WL-WN531G3
+  DEVICE_PACKAGES := kmod-mt76x2 kmod-phy-realtek kmod-usb2 kmod-usb-ohci
+endef
+TARGET_DEVICES += wavlink_wl-wn531g3
+
+
+define Device/wavlink_wl-wn531g3-a2
+  SOC := mt7620a
+  IMAGE_SIZE := 7872k
+  DEVICE_VENDOR := Wavlink
+  DEVICE_MODEL := WL-WN531G3-A2
+  DEVICE_PACKAGES := kmod-mt76x2 kmod-phy-realtek kmod-usb2 kmod-usb-ohci
+endef
+TARGET_DEVICES += wavlink_wl-wn531g3-a2
+
 define Device/wavlink_wl-wn535k1
   SOC := mt7620a
   IMAGE_SIZE := 7360k
@@ -1409,7 +1429,7 @@ define Device/youku_x2
   DEVICE_VENDOR := Youku
   DEVICE_MODEL := X2
   DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci \
-	kmod-sdhci-mt7620 kmod-usb-ledtrig-usbport
+	kmod-mmc-mtk kmod-usb-ledtrig-usbport
   UIMAGE_MAGIC := 0x12291000
   UIMAGE_NAME := 400000000000000000001000
 endef
@@ -1420,7 +1440,7 @@ define Device/youku_yk-l1
   IMAGE_SIZE := 32448k
   DEVICE_VENDOR := Youku
   DEVICE_MODEL := YK-L1
-  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-sdhci-mt7620 \
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-mmc-mtk \
 	kmod-usb-ledtrig-usbport
   SUPPORTED_DEVICES += youku-yk1 youku,yk1
   UIMAGE_MAGIC := 0x12291000
@@ -1433,7 +1453,7 @@ define Device/youku_yk-l1c
   IMAGE_SIZE := 16064k
   DEVICE_VENDOR := Youku
   DEVICE_MODEL := YK-L1c
-  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-sdhci-mt7620 \
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-mmc-mtk \
 	kmod-usb-ledtrig-usbport
   UIMAGE_MAGIC := 0x12291000
   UIMAGE_NAME := 400000000000000000000000
@@ -1486,7 +1506,7 @@ define Device/zbtlink_zbt-we1026-5g-16m
   DEVICE_VENDOR := Zbtlink
   DEVICE_MODEL := ZBT-WE1026-5G
   DEVICE_VARIANT := 16M
-  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci kmod-sdhci-mt7620
+  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci kmod-mmc-mtk
   SUPPORTED_DEVICES += we1026-5g-16m zbtlink,we1026-5g-16m
 endef
 TARGET_DEVICES += zbtlink_zbt-we1026-5g-16m
@@ -1497,7 +1517,7 @@ define Device/zbtlink_zbt-we1026-h-32m
   DEVICE_VENDOR := Zbtlink
   DEVICE_MODEL := ZBT-WE1026-H
   DEVICE_VARIANT := 32M
-  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-sdhci-mt7620
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-mmc-mtk
 endef
 TARGET_DEVICES += zbtlink_zbt-we1026-h-32m
 
@@ -1516,7 +1536,7 @@ define Device/zbtlink_zbt-we826-16m
   DEVICE_VENDOR := Zbtlink
   DEVICE_MODEL := ZBT-WE826
   DEVICE_VARIANT := 16M
-  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci kmod-sdhci-mt7620
+  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci kmod-mmc-mtk
   SUPPORTED_DEVICES += zbt-we826 zbt-we826-16M
 endef
 TARGET_DEVICES += zbtlink_zbt-we826-16m
@@ -1527,7 +1547,7 @@ define Device/zbtlink_zbt-we826-32m
   DEVICE_VENDOR := Zbtlink
   DEVICE_MODEL := ZBT-WE826
   DEVICE_VARIANT := 32M
-  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci kmod-sdhci-mt7620
+  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci kmod-mmc-mtk
   SUPPORTED_DEVICES += zbt-we826-32M
 endef
 TARGET_DEVICES += zbtlink_zbt-we826-32m
@@ -1537,7 +1557,7 @@ define Device/zbtlink_zbt-we826-e
   IMAGE_SIZE := 32448k
   DEVICE_VENDOR := Zbtlink
   DEVICE_MODEL := ZBT-WE826-E
-  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-sdhci-mt7620 uqmi \
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-mmc-mtk uqmi \
 	kmod-usb-serial-option
 endef
 TARGET_DEVICES += zbtlink_zbt-we826-e
@@ -1607,7 +1627,7 @@ define Device/zyxel_keenetic-viva
   DEVICE_VENDOR := ZyXEL
   DEVICE_MODEL := Keenetic Viva
   DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-usb-ledtrig-usbport \
-	kmod-switch-rtl8366-smi kmod-switch-rtl8367b
+	kmod-switch-rtl8367b
   IMAGES += factory.bin
   IMAGE/factory.bin := $$(sysupgrade_bin) | pad-to 64k | check-size | \
 	zyimage -d 8997 -v "ZyXEL Keenetic Viva"
